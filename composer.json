@@ -1,7 +1,7 @@
 {
     "name": "mervick/SocialAuth",
     "description": "SocialAuth is a PHP library to simplify the implementation of authentication for website through the popular social networks and services: vk.com, odnoklassniki.ru, mail.ru, yandex.ru, google.com, plus.google.com, facebook.com, twitter.com",
-    "license": "BSD-3-Clause",
+    "license": "GPL-3",
     "authors": [
         {
             "name": "Andrey Izman",
