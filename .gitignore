@@ -1,3 +1,4 @@
-/vendor/
-/demo/
-\.*
+/vendor
+/demo
+composer.lock
+.idea
