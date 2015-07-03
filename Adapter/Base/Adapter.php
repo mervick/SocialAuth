@@ -8,9 +8,9 @@
  * @version 0.2
  */
 
-namespace SocialAuther\Adapter;
+namespace SocialAuther\Adapter\Base;
 
-abstract class AbstractAdapter implements AdapterInterface
+abstract class Adapter
 {
     /**
      * Language
