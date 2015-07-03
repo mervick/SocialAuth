@@ -3,14 +3,20 @@
  * SocialAuther (http://socialauther.stanislasgroup.com/)
  *
  * @author Stanislav Protasevich
- * @author Andrey Izman <cyborgcms@gmail.com>
+ * @author Andrey Izman <izmanw@gmail.com>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
 namespace SocialAuther;
 
 use SocialAuther\Adapter\AdapterInterface;
+use SocialAuther\Exception\InvalidArgumentException;
 
+
+/**
+ * Class SocialAuther
+ * @package SocialAuther
+ */
 class SocialAuther
 {
     /**
@@ -18,7 +24,7 @@ class SocialAuther
      *
      * @var AdapterInterface
      */
-    protected  $adapter = null;
+    protected $adapter = null;
 
 
     /**
@@ -26,8 +32,8 @@ class SocialAuther
      *
      * @param string $provider
      * @param array $config
-     * @throws Exception\InvalidArgumentException
-     * @author Andrey Izman <cyborgcms@gmail.com>
+     * @throws InvalidArgumentException
+     * @author Andrey Izman <izmanw@gmail.com>
      */
     public function __construct($provider, $config)
     {
@@ -49,19 +55,19 @@ class SocialAuther
      * Redirect to provider authentication url or
      * authenticate and read user profile when redirected back.
      *
-     * @author Andrey Izman <cyborgcms@gmail.com>
-     * @return boolean
+     * @author Andrey Izman <izmanw@gmail.com>
+     * @return boolean|SocialUserProfile
      */
     public function login()
     {
-        return $this->adapter->login();
+        return $this->adapter->login() ? $this->adapter->getUserProfile() : false;
     }
 
     /**
      * Getting user profile
      *
-     * @author Andrey Izman <cyborgcms@gmail.com>
-     * @return \SocialAuther\SocialUserProfile
+     * @author Andrey Izman <izmanw@gmail.com>
+     * @return SocialUserProfile
      */
     public function getUserProfile()
     {
@@ -71,7 +77,7 @@ class SocialAuther
     /**
      * Checking for redirect from the provider
      *
-     * @author Andrey Izman <cyborgcms@gmail.com>
+     * @author Andrey Izman <izmanw@gmail.com>
      * @return boolean
      */
     public function isRedirected()
@@ -82,7 +88,7 @@ class SocialAuther
     /**
      * Checking for errors
      *
-     * @author Andrey Izman <cyborgcms@gmail.com>
+     * @author Andrey Izman <izmanw@gmail.com>
      * @return boolean
      */
     public function haveErrors()
