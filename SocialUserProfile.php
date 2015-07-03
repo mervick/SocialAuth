@@ -38,7 +38,7 @@ class SocialUserProfile implements \Iterator
     /**
      * Adapter manager
      *
-     * @var AdapterInterface
+     * @var Adapter
      */
     protected $adapter = null;
 
@@ -83,12 +83,12 @@ class SocialUserProfile implements \Iterator
      */
     public function __construct($adapter)
     {
-        if ($adapter instanceof AdapterInterface) {
+        if ($adapter instanceof Adapter) {
             $this->adapter = $adapter;
         } else {
             throw new InvalidArgumentException(
                     'SocialUserProfile only expects instance of the ' .
-                    'SocialAuther\Adapter\AdapterInterface type.'
+                    'SocialAuther\Adapter\Base\Adapter type.'
             );
         }
     }
