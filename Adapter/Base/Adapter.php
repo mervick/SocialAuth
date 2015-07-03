@@ -3,13 +3,21 @@
  * SocialAuther (http://socialauther.stanislasgroup.com/)
  *
  * @author Stanislav Protasevich
- * @author Andrey Izman <cyborgcms@gmail.com>
+ * @author Andrey Izman <izmanw@gmail.com>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  * @version 0.2
  */
 
 namespace SocialAuther\Adapter\Base;
 
+use SocialAuther\Exception\InvalidArgumentException;
+use SocialAuther\SocialUserProfile;
+
+
+/**
+ * Class Adapter
+ * @package SocialAuther\Adapter\Base
+ */
 abstract class Adapter
 {
     /**
@@ -71,7 +79,7 @@ abstract class Adapter
     /**
      * User profile
      *
-     * @var \SocialUserProfile
+     * @var SocialUserProfile
      */
     protected $userProfile = null;
 
@@ -102,12 +110,12 @@ abstract class Adapter
      * Constructor
      *
      * @param array $config
-     * @throws Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function __construct($config)
     {
         if (!is_array($config))
-            throw new Exception\InvalidArgumentException(
+            throw new InvalidArgumentException(
                 __METHOD__ . ' expects an array with keys: `client_id`, `client_secret`, `redirect_uri`'
             );
         else {
@@ -117,7 +125,7 @@ abstract class Adapter
 
         foreach (array('client_id', 'client_secret', 'redirect_uri') as $param) {
             if (!array_key_exists($param, $config)) {
-                throw new Exception\InvalidArgumentException(
+                throw new InvalidArgumentException(
                     __METHOD__ . ' expects an array with key: `' . $param . '`'
                 );
             } else {
@@ -150,7 +158,7 @@ abstract class Adapter
     /**
      * Get user name or null if it is not set
      *
-     * @author Andrey Izman <cyborgcms@gmail.com>
+     * @author Andrey Izman <izmanw@gmail.com>
      * @return string|null
      */
     public function getName()
@@ -207,7 +215,7 @@ abstract class Adapter
     /**
      * Get user sex or null.
      *
-     * @author Andrey Izman <cyborgcms@gmail.com>
+     * @author Andrey Izman <izmanw@gmail.com>
      * @return string|null
      */
     public function getSex()
@@ -222,7 +230,7 @@ abstract class Adapter
     /**
      * Get user birthdate in format dd.mm.YYYY or null if it is not set
      *
-     * @author Andrey Izman <cyborgcms@gmail.com>
+     * @author Andrey Izman <izmanw@gmail.com>
      * @return string|null
      */
     final public function getBirthDate()
@@ -243,7 +251,7 @@ abstract class Adapter
     /**
      * Get user birth day or null if it is not set
      *
-     * @author Andrey Izman <cyborgcms@gmail.com>
+     * @author Andrey Izman <izmanw@gmail.com>
      * @return integer|null
      */
     final public function getBirthDay()
@@ -255,7 +263,7 @@ abstract class Adapter
     /**
      * Get user birth month or null if it is not set
      *
-     * @author Andrey Izman <cyborgcms@gmail.com>
+     * @author Andrey Izman <izmanw@gmail.com>
      * @return integer|null
      */
     final public function getBirthMonth()
@@ -267,7 +275,7 @@ abstract class Adapter
     /**
      * Get user birth year or null if it is not set
      *
-     * @author Andrey Izman <cyborgcms@gmail.com>
+     * @author Andrey Izman <izmanw@gmail.com>
      * @return integer|null
      */
     final public function getBirthYear()
@@ -279,7 +287,7 @@ abstract class Adapter
     /**
      * Get user phone number
      *
-     * @author Andrey Izman <cyborgcms@gmail.com>
+     * @author Andrey Izman <izmanw@gmail.com>
      * @return string|null
      */
     public function getPhone()
@@ -290,7 +298,7 @@ abstract class Adapter
     /**
      * Get user location (e.g. "Odessa, Ukraine").
      *
-     * @author Andrey Izman <cyborgcms@gmail.com>
+     * @author Andrey Izman <izmanw@gmail.com>
      * @return string|null
      */
     public function getLocation()
@@ -313,7 +321,7 @@ abstract class Adapter
     /**
      * Get user country name
      *
-     * @author Andrey Izman <cyborgcms@gmail.com>
+     * @author Andrey Izman <izmanw@gmail.com>
      * @return string|null
      */
     public function getCountry()
@@ -324,7 +332,7 @@ abstract class Adapter
     /**
      * Get user city name
      *
-     * @author Andrey Izman <cyborgcms@gmail.com>
+     * @author Andrey Izman <izmanw@gmail.com>
      * @return string|null
      */
     public function getCity()
@@ -346,8 +354,8 @@ abstract class Adapter
      * Redirect to provider authentication url or
      * authenticate and read user profile when redirected back.
      *
-     * @author Andrey Izman <cyborgcms@gmail.com>
-     * @throws Exception\InvalidArgumentException
+     * @author Andrey Izman <izmanw@gmail.com>
+     * @throws InvalidArgumentException
      *
      * @return boolean
      */
@@ -365,7 +373,7 @@ abstract class Adapter
                 exit;
             }
             else {
-                throw new Exception\InvalidArgumentException(
+                throw new InvalidArgumentException(
                     'Invalid params on '.ucfirst($this->provider).'::prepareAuthParams()'
                 );
             }
@@ -376,7 +384,7 @@ abstract class Adapter
     /**
      * Checking for redirect from the provider
      *
-     * @author Andrey Izman <cyborgcms@gmail.com>
+     * @author Andrey Izman <izmanw@gmail.com>
      * @return boolean
      */
     public function isRedirected()
@@ -387,7 +395,7 @@ abstract class Adapter
     /**
      * Checking for errors
      *
-     * @author Andrey Izman <cyborgcms@gmail.com>
+     * @author Andrey Izman <izmanw@gmail.com>
      * @return boolean
      */
     public function haveErrors()
@@ -468,7 +476,7 @@ abstract class Adapter
         $name = lcfirst($name);
 
         if (array_key_exists($name, $this->userInfo)) {
-            return $this->userInfo[$name];;
+            return $this->userInfo[$name];
         }
 
         return null;
@@ -477,15 +485,15 @@ abstract class Adapter
     /**
      * Parse user data and create user profile
      *
-     * @author Andrey Izman <cyborgcms@gmail.com>
      * @param array $response
-     * @throws Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
+     * @author Andrey Izman <izmanw@gmail.com>
      */
     final protected function parseUserData($response)
     {
         if (!is_array($response))
         {
-            throw new Exception\InvalidArgumentException(
+            throw new InvalidArgumentException(
                  'Invalid param $response on '.__METHOD__
             );
         }
@@ -500,14 +508,14 @@ abstract class Adapter
             }
         }
 
-        $this->userProfile = new \SocialAuther\SocialUserProfile($this);
+        $this->userProfile = new SocialUserProfile($this);
     }
 
     /**
      * Get user profile
      *
-     * @author Andrey Izman <cyborgcms@gmail.com>
      * @return \SocialUserProfile
+     * @author Andrey Izman <izmanw@gmail.com>
      */
     final public function getUserProfile()
     {
