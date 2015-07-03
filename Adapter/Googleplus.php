@@ -5,7 +5,7 @@ namespace SocialAuther\Adapter;
 /**
  * Googleplus adapter
  *
- * @author Andrey Izman <cyborgcms@gmail.com>
+ * @author Andrey Izman <izmanw@gmail.com>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 class Googleplus extends AbstractAdapter
@@ -140,7 +140,7 @@ class Googleplus extends AbstractAdapter
     /**
      * Get user country name
      *
-     * @author Andrey Izman <cyborgcms@gmail.com>
+     * @author Andrey Izman <izmanw@gmail.com>
      * @return string|null
      */
     public function getCountry()
@@ -155,7 +155,7 @@ class Googleplus extends AbstractAdapter
     /**
      * Get user city name
      *
-     * @author Andrey Izman <cyborgcms@gmail.com>
+     * @author Andrey Izman <izmanw@gmail.com>
      * @return string|null
      */
     public function getCity()

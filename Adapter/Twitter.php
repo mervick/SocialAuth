@@ -5,7 +5,7 @@ namespace SocialAuther\Adapter;
 /**
  * Twitter adapter
  *
- * @author Andrey Izman <cyborgcms@gmail.com>
+ * @author Andrey Izman <izmanw@gmail.com>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 class Twitter extends AbstractAdapter
@@ -356,7 +356,7 @@ class Twitter extends AbstractAdapter
     /**
      * Checking for redirect from the provider.
      *
-     * @author Andrey Izman <cyborgcms@gmail.com>
+     * @author Andrey Izman <izmanw@gmail.com>
      * @return boolean
      */
     public function isRedirected()
@@ -367,7 +367,7 @@ class Twitter extends AbstractAdapter
     /**
      * Checking for errors.
      *
-     * @author Andrey Izman <cyborgcms@gmail.com>
+     * @author Andrey Izman <izmanw@gmail.com>
      * @return boolean
      */
     public function haveErrors()

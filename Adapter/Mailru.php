@@ -37,7 +37,7 @@ class Mailru extends AbstractAdapter
     /**
      * Get user location (e.g. "Odessa, Ukraine").
      *
-     * @author Andrey Izman <cyborgcms@gmail.com>
+     * @author Andrey Izman <izmanw@gmail.com>
      * @return string|null
      */
     public function getLocation()

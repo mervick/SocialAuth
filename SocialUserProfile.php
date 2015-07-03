@@ -2,14 +2,37 @@
 /**
  * SocialUserProfile
  *
- * @author Andrey Izman <cyborgcms@gmail.com>
+ * @author Andrey Izman <izmanw@gmail.com>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
 namespace SocialAuther;
 
-use SocialAuther\Adapter\AdapterInterface;
+use SocialAuther\Adapter\Base\Adapter;
+use SocialAuther\Exception\InvalidArgumentException;
 
+/**
+ * Class SocialUserProfile
+ * @package SocialAuther
+ *
+ * @property $id
+ * @property $name
+ * @property $firstName
+ * @property $secondName
+ * @property $sex
+ * @property $email
+ * @property $page
+ * @property $image
+ * @property $phone
+ * @property $location
+ * @property $country
+ * @property $city
+ * @property $birthDate
+ * @property $birthDay
+ * @property $birthMonth
+ * @property $birthYear
+ *
+ */
 class SocialUserProfile implements \Iterator
 {
     /**
@@ -55,15 +78,15 @@ class SocialUserProfile implements \Iterator
     /**
      * Constructor.
      *
-     * @param AdapterInterface $adapter
-     * @throws Exception\InvalidArgumentException
+     * @param Adapter $adapter
+     * @throws InvalidArgumentException
      */
     public function __construct($adapter)
     {
         if ($adapter instanceof AdapterInterface) {
             $this->adapter = $adapter;
         } else {
-            throw new Exception\InvalidArgumentException(
+            throw new InvalidArgumentException(
                     'SocialUserProfile only expects instance of the ' .
                     'SocialAuther\Adapter\AdapterInterface type.'
             );
@@ -74,7 +97,7 @@ class SocialUserProfile implements \Iterator
      * Magic method to getting user data fields as properties
      *
      * @param string $name Variable name
-     * @throws \LogicException
+     * @throws InvalidArgumentException
      * @return mixed
      */
     public function __get($name)
@@ -91,7 +114,7 @@ class SocialUserProfile implements \Iterator
             return $this->adapter->getProvider();
         }
 
-        throw new \LogicException("Property $name is not defined in " . __CLASS__);
+        throw new InvalidArgumentException("Property $name is not defined in " . __CLASS__);
     }
 
     /**

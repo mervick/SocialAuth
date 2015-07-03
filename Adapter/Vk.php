@@ -60,7 +60,7 @@ class Vk extends AbstractAdapter
     /**
      * Get user phone number
      *
-     * @author Andrey Izman <cyborgcms@gmail.com>
+     * @author Andrey Izman <izmanw@gmail.com>
      * @return string|null
      */
     public function getPhone()
@@ -113,7 +113,7 @@ class Vk extends AbstractAdapter
     /**
      * Get user country name
      *
-     * @author Andrey Izman <cyborgcms@gmail.com>
+     * @author Andrey Izman <izmanw@gmail.com>
      * @return string|null
      */
     public function getCountry()
@@ -141,7 +141,7 @@ class Vk extends AbstractAdapter
     /**
      * Get user city name
      *
-     * @author Andrey Izman <cyborgcms@gmail.com>
+     * @author Andrey Izman <izmanw@gmail.com>
      * @return string|null
      */
     public function getCity()

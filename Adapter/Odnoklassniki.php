@@ -69,7 +69,7 @@ class Odnoklassniki extends AbstractAdapter
     /**
      * Get user location.
      *
-     * @author Andrey Izman <cyborgcms@gmail.com>
+     * @author Andrey Izman <izmanw@gmail.com>
      * @return string|null
      */
     public function getLocation()
@@ -92,7 +92,7 @@ class Odnoklassniki extends AbstractAdapter
     /**
      * Get user country name
      *
-     * @author Andrey Izman <cyborgcms@gmail.com>
+     * @author Andrey Izman <izmanw@gmail.com>
      * @return string|null
      */
     public function getCountry()
@@ -111,7 +111,7 @@ class Odnoklassniki extends AbstractAdapter
     /**
      * Get user city name
      *
-     * @author Andrey Izman <cyborgcms@gmail.com>
+     * @author Andrey Izman <izmanw@gmail.com>
      * @return string|null
      */
     public function getCity()
