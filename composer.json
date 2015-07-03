@@ -1,19 +1,14 @@
 {
-    "name": "orbisnull/socialauther",
-    "description": "SocialAuther is a PHP library to simplify the implementation of authentication for website through the popular social networks and services: vk.com, odnoklassniki.ru, mail.ru, yandex.ru, google.com. facebook.com. Based on https://github.com/stanislav-protasevich/SocialAuther",
-    "license": "GPL-3.0+",
+    "name": "mervick/socialauther",
+    "description": "SocialAuth is a PHP library to simplify the implementation of authentication for website through the popular social networks and services: vk.com, odnoklassniki.ru, mail.ru, yandex.ru, google.com, plus.google.com, facebook.com, twitter.com",
+    "license": "BSD-3-Clause",
     "authors": [
         {
-            "name": "Vasiliy Shvakin",
-            "email": "zen4dev@gmail.com"
+            "name": "Andrey Izman",
+            "email": "izmanw@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
     "autoload": {
-        "psr-0": { "SocialAuther": "src/" }
-    },
-    "require": {
-        "orbisnull/twitterauth" : "dev-master",
-        "orbisnull/orbistools": "dev-master"
+        "psr-0": { "SocialAuth": "" }
     }
 }
