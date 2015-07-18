@@ -1,4 +1,6 @@
 # SocialAuther #
+[![Analytics](https://ga-beacon.appspot.com/UA-65295275-1/SocialAuth)](https://github.com/igrigorik/ga-beacon)
+
 **SocialAuther** - это PHP библиотека для упрощения реализации аутентификации на вашем сайте через популярные социальные сети и сервисы:
 
 - [ВКонтакте](http://vk.com/)
