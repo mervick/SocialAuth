@@ -4,12 +4,17 @@ namespace SocialAuther\Adapter;
 
 class Vk extends AbstractAdapter
 {
+    /**
+    * VK.com api version
+    * @see https://vk.com/dev/versions
+    */
+    private $api_version = 5.52;
+    
     public function __construct($config)
     {
         parent::__construct($config);
 
         $this->fieldsMap = array(
-            'id'         => 'uid',
             'image'      => 'photo_big',
             'firstName'  => 'first_name',
             'secondName' => 'last_name',
@@ -126,7 +131,8 @@ class Vk extends AbstractAdapter
             $params = array(
                 'cids'         => $this->response['country'],
                 'access_token' => $this->response['token']['access_token'],
-                'lang'         => $this->lang
+                'lang'         => $this->lang,
+                'v'            => $this->version
             );
 
             $countryInfo = $this->get('https://api.vk.com/method/places.getCountryById', $params);
@@ -154,7 +160,8 @@ class Vk extends AbstractAdapter
             $params = array(
                 'cids'         => $this->response['city'],
                 'access_token' => $this->response['token']['access_token'],
-                'lang'         => $this->lang
+                'lang'         => $this->lang,
+                'v'            => $this->version
             );
 
             $cityInfo = $this->get('https://api.vk.com/method/places.getCityById', $params);
@@ -188,7 +195,8 @@ class Vk extends AbstractAdapter
                     'uids'         => $tokenInfo['user_id'],
                     'fields'       => 'uid,first_name,last_name,screen_name,sex,bdate,photo_big,city,country,contacts',
                     'access_token' => $tokenInfo['access_token'],
-                    'lang'         => $this->lang
+                    'lang'         => $this->lang,
+                    'v'            => $this->version
                 );
 
                 $userInfo = $this->get('https://api.vk.com/method/users.get', $params);
